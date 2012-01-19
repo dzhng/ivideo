@@ -1,6 +1,6 @@
 <head>
 	
-	<title>HTML5 Canvas Editor Research</title>
+	<title>Interactive Video Player</title>
 	
 	<style type="text/css">
 		body    { background: #000; margin-left: 0; margin-right: 0; margin-top: 0; }
@@ -21,5 +21,5 @@
 	
 </head>
 <body onload="document_load();">
-	<canvas id="controlOverlay" style="z-index:100;position:absolute;"></canvas>
+	<div id="controlOverlay" style="z-index:100;position:absolute;"></div>
 </body>

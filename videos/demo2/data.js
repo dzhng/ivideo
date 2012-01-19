@@ -8,10 +8,10 @@ var S2bf = new Segment("demo2/S2bf");
 var S2bs = new Segment("demo2/S2bs");
 var S2c = new Segment("demo2/S2c");
 
-S1b.insertConnection(S1r, "You want to run that by me again?", 1);
+S1b.insertConnection(S1r, "Repeat what you just said?", 1);
 S1b.insertConnection(S2as, "What was that around the corner?", 4);
-S1b.insertConnection(S2bs, "Did I see something move in your pants?", 5);
-S1b.insertConnection(S2c, "It's okay I'm a rock hound too", 3);
+S1b.insertConnection(S2bs, "Are you happy to see me again?", 5);
+S1b.insertConnection(S2c, "It's okay I'm cool", 3);
 
 S1.insertDirect(S1b);
 S1r.insertDirect(S1b);
