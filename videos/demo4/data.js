@@ -59,7 +59,7 @@ var S1 = new Segment("demo4/S1");
 		var Spnl2wd = new Segment("demo4/pnl/2wd");
 		var Spnl5r1 = new Segment("demo4/pnl/5r1");
 		var Spnl7r2 = new Segment("demo4/pnl/7r2");
-		var Spnl9r3 = new Segment("demo4/pnl9r3");
+		var Spnl9r3 = new Segment("demo4/pnl/9r3");
 		var Spnl11j = new Segment("demo4/pnl/11j");
 	//Transistions
 		var Spnl2t = new Segment("demo4/pnl/2t");
@@ -87,9 +87,9 @@ var S1 = new Segment("demo4/S1");
 	S1.insertConnection(Sbw1t, "Black Lady", 5);
 
 //Post it Lady
-	Spnl1pl.inserDirect(Spnljc1t);
-	Spnljc1t.insertDirect(Spnljc2wd);
-	Spnljc2wd.insertDirect(Spnl4t);
+	Spnl1pl.insertDirect(Spnl2t);
+	Spnl2t.insertDirect(Spnl2wd);
+	Spnl2wd.insertDirect(Spnl4t);
 	Spnl4t.insertDirect(Spnl5r1);
 	Spnl5r1.insertDirect(Spnl6t);
 	Spnl6t.insertDirect(Spnl7r2);
