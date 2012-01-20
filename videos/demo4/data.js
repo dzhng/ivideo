@@ -47,7 +47,7 @@ S6t.insertDirect(S7r2);
 S7r2.insertDirect(S8t);
 S8t.insertDirect(S9r3);
 S9r3.insertDirect(S10t);
-S10t.insertDirest(S11j);
+S10t.insertDirect(S11j);
 
 //Going back?
 //S11j.insertConnection(,"",);
