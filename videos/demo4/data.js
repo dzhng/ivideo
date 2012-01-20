@@ -13,8 +13,8 @@
 			var Sjc2f = new Segment("demo4/bd/j/c/2f");		
 			var Sjc3t = new Segment("demo4/bd/j/c/3t");		
 		//Wrong Choice
-			var	Sjw1bd = new Segment("demo4/bd/j/w/1bd";
-			var Sjw2wdf = new Segment("demo4/bd/j/w/2wdf";
+			var	Sjw1bd = new Segment("demo4/bd/j/w/1bd");
+			var Sjw2wdf = new Segment("demo4/bd/j/w/2wdf");
 
 	//Main Segment Transistions	
 		var S2t = new Segment("demo4/bd/2t");
@@ -34,8 +34,8 @@
 
 //First Choice to decide which customer
 S1.insertConnection(S1bd, "Black Dude", 3);
-S1.insertConnection(,"Postit Note Lady",4);
-S1.insertConnection(,"Black Lady",5);
+//S1.insertConnection(,"Postit Note Lady",4);
+//S1.insertConnection(,"Black Lady",5);
 
 //Black Dude
 S1bd.insertDirect(2t);
