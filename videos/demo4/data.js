@@ -18,10 +18,10 @@
 
 	//Main Segment Transistions	
 		var S2t = new Segment("demo4/bd/2t");
-		var S4t = new Segment("demo/bd/4t");
-		var S6t = new Segment("demo/bd/4t");
-		var S8t = new Segment("demo/bd/8t");
-		var S10t = new Segment("demo/bd/10t");
+		var S4t = new Segment("demo4/bd/4t");
+		var S6t = new Segment("demo4/bd/4t");
+		var S8t = new Segment("demo4/bd/8t");
+		var S10t = new Segment("demo4/bd/10t");
 //Post it Note Lady 
 	//Main Segments
 	//Transistions
@@ -59,5 +59,5 @@ S11j.insertConnection(Sjc1t, "Choice 3", 5);
 
 //Wrong choice
 Sjw1bd.insertDirect(Sjw2wdf);
-Sjw2wdfinsertDirect(S1bd);
+Sjw2wdf.insertDirect(S1bd);
 //Correct Choices - nothing needed
