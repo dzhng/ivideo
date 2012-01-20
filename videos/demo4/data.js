@@ -38,7 +38,7 @@ S1.insertConnection(S1bd, "Black Dude", 3);
 //S1.insertConnection(,"Black Lady",5);
 
 //Black Dude
-S1bd.insertDirect(2t);
+S1bd.insertDirect(S2t);
 S2t.insertDirect(S3wd);
 S3wd.insertDirect(S4t);
 S4t.insertDirect(S5r1);
@@ -50,9 +50,7 @@ S9r3.insertDirect(S10t);
 S10t.insertDirest(S11j);
 
 //Going back?
-S11j.insertConnection(,"",);
-S11j.insertConnection(,"",);
-S11j.insertConnection(,"",);
+//S11j.insertConnection(,"",);
 
 //Forward Choices
 S11j.insertConnection(Sjw1bd, "Choice 1", 3);
