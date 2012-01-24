@@ -82,9 +82,9 @@ var S1 = new Segment("demo4/S1");
 
 //Video Control flow below:		
 //First Choice to decide which customer
-	S1.insertConnection(S1bd, "Black Dude", 3);
-	S1.insertConnection(Spnl1pl,"Postit Note Lady",4);
-	S1.insertConnection(Sbw1t, "Black Lady", 5);
+	S1.insertConnection(S1bd, "Bill", 3);
+	S1.insertConnection(Spnl1pl,"Jill",4);
+	S1.insertConnection(Sbw1t, "Susan", 5);
 
 //Post it Lady
 	Spnl1pl.insertDirect(Spnl2t);
