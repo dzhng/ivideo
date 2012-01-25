@@ -36,12 +36,12 @@ var ThemeModel = function(model, theme, width, height)
 		{type:"text", "font-size": fsize, "font-family": "Arial", "font-weight": "bold", x:this.selx + 0.7*r, y:this.sely - 0.7*r, "text-anchor": "start"}
 	];
 	var selectionBoxes = [
-		{type:"rect", x:this.selx - 0.7*r,y:this.sely -0.7*r,stroke:rgba(0,0,0,0),width:this.width/2 - r,fill:rgba(1,1,0,1),height:this.fsize+5 },	
-		{type:"rect", x:this.selx - r, y:this.sely, stroke:rgba(0,0,0,0),width:this.width/2 - r,fill:rgba(1,1,0,1), height:this.fsize+5 },	
-		{type:"rect", x:this.selx - 0.7*r, y:this.sely +0.7*r, stroke:rgba(0,0,0,0),width:this.width/2 - r,fill:rgba(1,1,0,1), height:this.fsize+5 },	
-		{type:"rect", x:this.selx +0.7*r, y:this.sely +0.7*r, stroke:rgba(0,0,0,0),width:this.width/2 - r,fill:rgba(1,1,0,1), height:this.fsize+5 },	
-		{type:"rect", x:this.selx + r, y:this.sely, stroke:rgba(0,0,0,0),width:this.width/2 - r,fill:rgba(1,1,0,1),height:this.fsize+5 },	
-		{type:"rect", x:this.selx + 0.7*r, y:this.sely -0.7*r, stroke:rgba(0,0,0,0),width:this.width/2 - r,fill:rgba(1,1,0,1),height:this.fsize+5 },	
+		{type:"rect", x:this.selx - 0.7*r,y:this.sely -0.7*r,stroke:"rgba(0,0,0,0)",width:this.width/2 - r,fill:"rgba(1,1,0,1)",height:this.fsize+5 },	
+		{type:"rect", x:this.selx - r, y:this.sely, stroke:"rgba(0,0,0,0)",width:this.width/2 - r,fill:"rgba(1,1,0,1)", height:this.fsize+5 },	
+		{type:"rect", x:this.selx - 0.7*r, y:this.sely +0.7*r, stroke:"rgba(0,0,0,0)",width:this.width/2 - r,fill:"rgba(1,1,0,1)", height:this.fsize+5 },	
+		{type:"rect", x:this.selx +0.7*r, y:this.sely +0.7*r, stroke:"rgba(0,0,0,0)",width:this.width/2 - r,fill:"rgba(1,1,0,1)", height:this.fsize+5 },	
+		{type:"rect", x:this.selx + r, y:this.sely, stroke:"rgba(0,0,0,0)",width:this.width/2 - r,fill:"rgba(1,1,0,1)",height:this.fsize+5 },	
+		{type:"rect", x:this.selx + 0.7*r, y:this.sely -0.7*r, stroke:"rgba(0,0,0,0)",width:this.width/2 - r,fill:"rgba(1,1,0,1)",height:this.fsize+5 },	
 		]; 
 	
 	this.paper.add(selectionBoxes);
