@@ -98,16 +98,19 @@ var S1 = new Segment("demo4/S1");
 	Spnl9r3.insertDirect(Spnl10t);
 	Spnl10t.insertDirect(Spnl11j);
 
+	//Review
+	Spnl11j.insertConnection(Spnl1pl,"Review",1)
 	//Junction
-		Spnl11j.insertConnection(Spnljc1t,"Choice 1",3);
-		Spnl11j.insertConnection(Spnljw1f,"Choice 2",4);
-		Spnl11j.insertConnection(Spnljw1f2,"Choice 3",5);
+		Spnl11j.insertConnection(Spnljc1t,"(See)well look I'll sure see...",3);
+		Spnl11j.insertConnection(Spnljw1f,"(Feel)Well, I'll handle it...",4);
+		Spnl11j.insertConnection(Spnljw1f2,"(Hear)If I hear you correctly",5);
 	//Correct	
 		Spnljc1t.insertDirect(Spnljc2f);
 		Spnljc2f.insertDirect(Spnljc3t);
 		Spnljc3t.insertDirect(Spnljc4wty);
 		Spnljc4wty.insertDirect(Spnljc5t);
 		Spnljc5t.insertDirect(Spnljc6wdwu);
+		Spnljc6wdwu.insertDirect(S1);
 	//Wrong
 		Spnljw1f.insertDirect(Spnl1pl);
 		Spnljw1f2.insertDirect(Spnl1pl);
@@ -164,7 +167,7 @@ var S1 = new Segment("demo4/S1");
 	//Correct
 	Sbwjc1t.insertDirect(Sbwjc2f);
 	Sbwjc3t.insertDirect(Sbwjc4cr);
-
+	Sbwjc4cr.insertDirect(S1);
 	//Wrong
 	Sbwjw1f2.insertDirect(Sbw2bw);
 	Sbwjw1f.insertDirect(Sbw2bw);
