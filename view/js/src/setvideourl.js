@@ -6,9 +6,9 @@ var setVideoUrl = function(url)
 	}
 
 	if(isMozilla) {
-		return ("../videos/" + url + ".ogv");
+		return ("/videos/" + url + ".ogv");
 	} else {
-		return ("../videos/" + url + ".mp4");
+		return ("/videos/" + url + ".mp4");
 	}
 }
 
