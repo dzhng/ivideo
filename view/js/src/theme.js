@@ -35,45 +35,43 @@ var ThemeModel = function(model, theme, width, height)
 		{type:"text", "font-size": fsize, "font-family": "Arial", "font-weight": "bold", x:this.selx + r, y:this.sely, "text-anchor": "start"},
 		{type:"text", "font-size": fsize, "font-family": "Arial", "font-weight": "bold", x:this.selx + 0.7*r, y:this.sely - 0.7*r, "text-anchor": "start"}
 	];
-	var selectionBoxes = [
-		{type:"rect", x:0.35*r,y:this.sely -0.915*r,stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0, 0, 0, 0)",height:fsize},	
-		{type:"rect", x:0, y:this.sely-0.23*r, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,0)", height:fsize},	
-		{type:"rect", x:0.35*r, y:this.sely +0.49*r, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,0)", height:fsize},	
-		{type:"rect", x:this.selx +0.7*r, y:this.sely+0.49*r, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,0)", height:fsize},	
-		{type:"rect", x:this.selx + r, y:this.sely-0.23*r, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,0)",height:fsize},	
-		{type:"rect", x:this.selx + 0.7*r, y:this.sely -0.915*r, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,0)",height:fsize},	
-		]; 
+	var selectionBoxesAttr = [
+		{type:"rect", x:0.35*r,y:this.sely -0.915*r,"stroke-width":0, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,1)",height:fsize},	
+		{type:"rect", x:0, y:this.sely-0.23*r,"stroke-width":0, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,1)", height:fsize},	
+		{type:"rect", x:0.35*r, y:this.sely +0.49*r,"stroke-width":0, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,1)", height:fsize},	
+		{type:"rect", x:this.selx +0.7*r, y:this.sely+0.49*r,"stroke-width":0, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,1)", height:fsize},	
+		{type:"rect", x:this.selx + r, y:this.sely-0.23*r,"stroke-width":0, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,1)",height:fsize},	
+		{type:"rect", x:this.selx + 0.7*r, y:this.sely -0.915*r,"stroke-width":0, stroke:"rgba(0,0,0,0)",width:width/2 - r,fill:"rgba(0,0,0,1)",height:fsize}
+	]; 
 	
 	this.optionShadow = this.paper.add(optionAttr);
 	this.options = this.paper.add(optionAttr);		
-	this.selectionsBox = this.paper.add(selectionBoxes);
+	this.selectionBoxes = this.paper.add(selectionBoxesAttr);
 
 	// hide all the option text by default
 	for(var i = 0; i < this.options.length; i++) {
 		var current = 0;
-		(function (model, paper, options, selectionsBox, i) {
+		(function (model, paper, options, selectionBoxes, i) {
 			var option = options[i];
-			var selectionBox = selectionsBox[i];
-			option.node.style.cursor = "pointer";
+			var selectionBox = selectionBoxes[i];
+			selectionBox.node.style.cursor = "pointer";
 			option.attr({fill:textColor});
 			
-			selectionBox.click(function(){
-				model.selectOption(i);
+			selectionBox.mousedown(function(){
+					model.selectOption(i);
 				}).mouseover(function(){	
 					options[current].animate({fill:textColor}, 200);		
 					option.animate({fill:textHighlighted}, 200);
-					option.toFront();
-					option[0].style.display = "block";
+					selectionBox.toFront();
 					paper.safari();
 					current = i;	
 				}).mouseout(function(){	
 					option.animate({fill:textColor}, 200);
-					option.toFront();
 					paper.safari();
-					});
+				});
 			option.hide();
 			selectionBox.hide();
-		})(this.model, this.paper, this.options,this.selectionsBox, i);
+		})(this.model, this.paper, this.options, this.selectionBoxes, i);
 		this.optionShadow[i].attr({fill:shadowFill});
 		this.optionShadow[i].translate(1,1);
 		this.optionShadow[i].hide();
@@ -138,11 +136,12 @@ ThemeModel.prototype.showOptions = function(text)
 	this.icon.show();
 	for(var i = 0; i < text.length; i++) {
 		if(text[i] != undefined) {
-			this.selectionsBox[i].show();
 			this.options[i].attr({text: text[i]});
 			this.options[i].show();
 			this.optionShadow[i].attr({text: text[i]});
 			this.optionShadow[i].show();
+			this.selectionBoxes[i].show();
+			this.selectionBoxes[i].toFront();
 		} 
 	}
 };
@@ -152,9 +151,9 @@ ThemeModel.prototype.hideOptions = function()
 	this.selector.hide();
 	this.icon.hide();
 	for(var i = 0; i < 6; i++) {
-		this.selectionsBox[i].hide();
 		this.options[i].hide();
 		this.optionShadow[i].hide();
+		this.selectionBoxes[i].hide();
 	}
 };
 
