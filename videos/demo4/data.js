@@ -125,10 +125,12 @@ var S1 = new Segment("demo4/S1");
 	S9r3.insertDirect(S10t);
 	S10t.insertDirect(S11j);
 
+//Review
+	S11j.insertConnection(S1bd,"Review", 1);
 //Forward Choices
-	S11j.insertConnection(Sjw1bd2, "Choice 1", 3);
-	S11j.insertConnection(Sjw1bd, "Choice 2", 4);
-	S11j.insertConnection(Sjc1t, "Choice 3", 5);
+	S11j.insertConnection(Sjc1t, "(Feel) I'm Sure that together...", 5);//Correct Answer
+	S11j.insertConnection(Sjw1bd, "(Hear) Listen, I hear what you're...", 4);
+	S11j.insertConnection(Sjw1bd2, "(See) Well, it's very clear what the...", 3);
 
 //Wrong choices
 	Sjw1bd.insertDirect(S1bd);
