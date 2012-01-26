@@ -140,7 +140,7 @@ var S1 = new Segment("demo4/S1");
 	Sjc1t.insertDirect(Sjc2f);
 	Sjc2f.insertDirect(Sjc3t);
 	Sjc3t.insertDirect(Sjc4wdf);
-
+	Sjc4wdf.insertDirect(S1);
 //Black Woman
 	Sbw1t.insertDirect(Sbw2bw);
 	Sbw2bw.insertDirect(Sbw3t);
@@ -154,10 +154,12 @@ var S1 = new Segment("demo4/S1");
 	Sbw10r3.insertDirect(Sbw11t);
 	Sbw11t.insertDirect(Sbw12j);
 
+//Review
+	Sbw12j.insertConnection(Sbw2bw,"Review",1);
 //Choose response
-	Sbw12j.insertConnection(Sbwjw1f2, "Choice 1", 3);
-	Sbw12j.insertConnection(Sbwjc1t, "Choice 2", 4);
-	Sbw12j.insertConnection(Sbwjw1f, "Choice 3", 5);
+	Sbw12j.insertConnection(Sbwjw1f2,"(Feel)If I hear you correctly...", 3);
+	Sbw12j.insertConnection(Sbwjc1t, "(Hear)I think I'm getting the picture...", 4);
+	Sbw12j.insertConnection(Sbwjw1f, "(See)The dealer feels that...", 5);
 
 	//Correct
 	Sbwjc1t.insertDirect(Sbwjc2f);
