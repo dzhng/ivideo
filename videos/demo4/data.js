@@ -160,9 +160,9 @@ var S1 = new Segment("demo4/S1");
 //Review
 	Sbw12j.insertConnection(Sbw2bw,"Review",1);
 //Choose response
-	Sbw12j.insertConnection(Sbwjw1f2,"(Feel)If I hear you correctly...", 3);
-	Sbw12j.insertConnection(Sbwjc1t, "(Hear)I think I'm getting the picture...", 4);
-	Sbw12j.insertConnection(Sbwjw1f, "(See)The dealer feels that...", 5);
+	Sbw12j.insertConnection(Sbwjw1f2,"(Hear)If I hear you correctly...", 3);
+	Sbw12j.insertConnection(Sbwjc1t, "(See)I think I'm getting the picture...", 4);
+	Sbw12j.insertConnection(Sbwjw1f, "(Feel)The dealer feels that...", 5);
 
 	//Correct
 	Sbwjc1t.insertDirect(Sbwjc2f);
