@@ -110,7 +110,6 @@ var S1 = new Segment("demo4/S1");
 		Spnljc3t.insertDirect(Spnljc4wty);
 		Spnljc4wty.insertDirect(Spnljc5t);
 		Spnljc5t.insertDirect(Spnljc6wdwu);
-		Spnljc6wdwu.insertDirect(S1);
 	//Wrong
 		Spnljw1f.insertDirect(Spnl1pl);
 		Spnljw1f2.insertDirect(Spnl1pl);
@@ -143,7 +142,6 @@ var S1 = new Segment("demo4/S1");
 	Sjc1t.insertDirect(Sjc2f);
 	Sjc2f.insertDirect(Sjc3t);
 	Sjc3t.insertDirect(Sjc4wdf);
-	Sjc4wdf.insertDirect(S1);
 //Black Woman
 	Sbw1t.insertDirect(Sbw2bw);
 	Sbw2bw.insertDirect(Sbw3t);
@@ -167,7 +165,6 @@ var S1 = new Segment("demo4/S1");
 	//Correct
 	Sbwjc1t.insertDirect(Sbwjc2f);
 	Sbwjc3t.insertDirect(Sbwjc4cr);
-	Sbwjc4cr.insertDirect(S1);
 	//Wrong
 	Sbwjw1f2.insertDirect(Sbw2bw);
 	Sbwjw1f.insertDirect(Sbw2bw);
