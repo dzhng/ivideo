@@ -99,7 +99,7 @@ var S1 = new Segment("demo4/S1");
 	Spnl10t.insertDirect(Spnl11j);
 
 	//Review
-	Spnl11j.insertConnection(Spnl1pl,"Review",1)
+	Spnl11j.insertConnection(Spnl1pl,"Review",1);
 	//Junction
 		Spnl11j.insertConnection(Spnljc1t,"(See)well look I'll sure see...",3);
 		Spnl11j.insertConnection(Spnljw1f,"(Feel)Well, I'll handle it...",4);
