@@ -10,7 +10,7 @@
 
 	<!--get the correct video file -->
 	<script type="text/javascript" 
-		src="<?echo '../videos/'.$_GET['v'].'/data.js';?>">
+		src="<?echo 'http://static.simply.io/'.$_GET['v'].'/data.js';?>">
 	</script>
 	
 	<script type="text/javascript">
