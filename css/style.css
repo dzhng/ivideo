@@ -53,8 +53,22 @@ time, mark, audio, video {
 			  hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
 
 			  input, select { vertical-align:middle; }
-			  /* END RESET CSS */
-			
+/*
+ *
+ *
+ * END RESET CSS
+ * do not fuck with the shit above...thanks
+ *
+ * */
+
+/* -----------Classes that can be reused ----------- */
+.text-left-align{text-align:left;}
+.text-center-align{text-align:center;}
+.text-right-align{text-align:right;}
+
+/* ------------------------------------------------- */
+
+
 /* Website Styles */
 body{
 	background:url(../img/bg-content-1.png);
@@ -76,10 +90,6 @@ p{
 	width:960px;
 	margin:0 auto;
 	padding-top:25px;
-}
-
-#page-content p{
-	text-align:center;
 }
 
 header[role="nav"]{
