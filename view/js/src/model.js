@@ -64,7 +64,22 @@ Model.prototype.mouseMove = function(e)
 Model.prototype.mouseUp = function(e)
 {
 	if(this.player.timerEventCanTrigger) {
-		this.player.setSegment(this.player.timerEventSegment);
+		switch(this.player.timerEventMode) {
+		case 0:
+			this.player.setSegment(this.player.timerEventSegment);
+			break;
+		case 1:
+			// stacked and append
+			this.player.segment.videoStack.insert(this.player.timerEventSegment);
+			break;
+		case 2:
+			// stacked and remove
+			this.player.segment.videoStack.remove(this.player.timerEventSegment);
+			break;
+		default:
+			console.error("Illegle timer event mode");
+			break;
+		}
 	}
 };
 
