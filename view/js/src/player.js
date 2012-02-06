@@ -133,12 +133,14 @@ Player.prototype.videoEnded = function()
 		// build the connections from the stack
 		var seg = this.segment;
 		var con = seg.connections;	// save the connections for now
+		var df = seg.defaultPos;
 		seg.connections = new Array();	// make a new connections array
 		while((s = this.stack.pull()) != null) {
 			seg.insertDirect(s);
 			seg = s;
 		}
 		seg.connections = con;	// restore the connection to the last segment in the stack
+		seg.defaultPos = df;
 		
 		// go to the first direct connection
 		this.chooseOption(this.segment.defaultPos);
