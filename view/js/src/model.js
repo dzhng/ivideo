@@ -19,7 +19,7 @@ var Model = function()
 	this.paper = Raphael(canvas, this.width,this.height);
 
 	// initialize the theme
-	this.theme = new ThemeModel(this, "default", this.width, this.height);
+	this.theme = new ThemeModel(this, "professional1", this.width, this.height);
 
 	// initialize the video player
 	this.player = new Player(this, this.width, this.height);
