@@ -20,6 +20,9 @@ var Player = function(model, width, height)
 	// 1 = stacked and append
 	// 2 = stacked and remove
 	this.timerEventMode = 0;
+	
+	// stores if the current segment has other segment(s) stacked
+	this.videoStacked = false;
 };
 
 // switch to the first default video
@@ -129,13 +132,16 @@ Player.prototype.videoEnded = function()
 	//TODO: support looping waiting videos
 	
 	// check if the video is in stacked mode
-	if(this.timerEventMode != 0) {
+	if(this.videoStacked) {
+		this.videoStacked = false;	// reset flag
+
 		// build the connections from the stack
 		var seg = this.segment;
 		var con = seg.connections;	// save the connections for now
 		var df = seg.defaultPos;
+		var stack = seg.videoStack;
 		seg.connections = new Array();	// make a new connections array
-		while((s = this.stack.pull()) != null) {
+		while((s = stack.pull()) != null) {
 			seg.insertDirect(s);
 			seg = s;
 		}
