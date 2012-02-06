@@ -71,10 +71,16 @@ Model.prototype.mouseUp = function(e)
 		case 1:
 			// stacked and append
 			this.player.segment.videoStack.insert(this.player.timerEventSegment);
+			this.player.videoStacked = true;
 			break;
 		case 2:
 			// stacked and remove
 			this.player.segment.videoStack.remove(this.player.timerEventSegment);
+			if(this.player.segment.videoStack.size == 0) {
+				this.player.videoStacked = false;
+			} else {
+				this.player.videoStacked = true;
+			}
 			break;
 		default:
 			console.error("Illegle timer event mode");

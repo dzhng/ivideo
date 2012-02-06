@@ -34,3 +34,8 @@ Stack.prototype.pull = function()
 	}
 };
 
+Stack.prototype.size = function()
+{
+	return this.stack.length;
+};
+
