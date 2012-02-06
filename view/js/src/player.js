@@ -15,6 +15,13 @@ var Player = function(model, width, height)
 	this.timerEventCanTrigger = false;
 	this.timerEventSegment = null;
 	this.timerId = setInterval(this.timerTick.bind(this), 100);
+
+	// for stacked videos
+	this.stack = [];
+	// 0 = not stacked
+	// 1 = stacked and append
+	// 2 = stacked and remove
+	this.timerEventIsStacked = 0;
 };
 
 // switch to the first default video

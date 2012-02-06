@@ -74,6 +74,14 @@ Segment.prototype.insertTimedEvent = function(child, starttime, endtime)
 	this.timedEvents.push(new TimedEvent(child, starttime, endtime));
 };
 
+Segment.prototype.initializeStack = function(stack)
+{
+};
+
+Segment.prototype.insertTimedStack = function(child, starttime, endtime, remove)
+{
+};
+
 // create a video element and set it as the video for this segment
 Segment.prototype.loadVideo = function(player)
 {
