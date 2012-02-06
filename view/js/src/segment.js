@@ -11,6 +11,10 @@ var Segment = function(url)
 	this.connections = new Array();
 	this.timedEvents = new Array();
 
+	// stores all the videos in the stack, the stack has to be
+	// under segments because it is persistent throughout all the connections/events
+	this.videoStack = new Stack();
+
 	this.video = null;
 	this.player = null;	// video player to callback when video is done playing
 };
@@ -74,12 +78,13 @@ Segment.prototype.insertTimedEvent = function(child, starttime, endtime)
 	this.timedEvents.push(new TimedEvent(child, starttime, endtime));
 };
 
-Segment.prototype.initializeStack = function(stack)
-{
-};
-
 Segment.prototype.insertTimedStack = function(child, starttime, endtime, remove)
 {
+	// if remove is true, push first and remove later
+	if(remove === true) {
+		this.videoStack.insert(child);
+	}
+	this.timedEvents.push(new TimedEvent(child, starttime, endtime, remove ? 2 : 1));
 };
 
 // create a video element and set it as the video for this segment

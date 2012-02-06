@@ -16,12 +16,10 @@ var Player = function(model, width, height)
 	this.timerEventSegment = null;
 	this.timerId = setInterval(this.timerTick.bind(this), 100);
 
-	// for stacked videos
-	this.stack = [];
 	// 0 = not stacked
 	// 1 = stacked and append
 	// 2 = stacked and remove
-	this.timerEventIsStacked = 0;
+	this.timerEventMode = 0;
 };
 
 // switch to the first default video
@@ -115,6 +113,7 @@ Player.prototype.timerTick = function(e)
 			if((seg.video.currentTime > evn.startTime) && (seg.video.currentTime < evn.endTime)) {
 				this.timerEventCanTrigger = true;
 				this.timerEventSegment = evn.segment;
+				this.timerEventMode = evn.mode;
 				return;
 			}
 		}	
@@ -129,7 +128,26 @@ Player.prototype.videoEnded = function()
 {
 	//TODO: support looping waiting videos
 	
-	// first check if the video supports directly skipping forward
+	// check if the video is in stacked mode
+	if(this.timerEventMode != 0) {
+		// build the connections from the stack
+		var seg = this.segment;
+		var con = seg.connections;	// save the connections for now
+		var df = seg.defaultPos;
+		seg.connections = new Array();	// make a new connections array
+		while((s = this.stack.pull()) != null) {
+			seg.insertDirect(s);
+			seg = s;
+		}
+		seg.connections = con;	// restore the connection to the last segment in the stack
+		seg.defaultPos = df;
+		
+		// go to the first direct connection
+		this.chooseOption(this.segment.defaultPos);
+		return;
+	}
+
+	// check if the video supports directly skipping forward
 	if(this.segment.defaultPos != -1) {
 		console.log("direct video detected, not showing options");
 		this.chooseOption(this.segment.defaultPos);
@@ -140,6 +158,9 @@ Player.prototype.videoEnded = function()
 		//console.log("no more options, end of interactive video");
 		//NOTE: This will keep executing at 10 times/sec due to timer tick check
 		this.model.videoComplete();
+		return;
 	}
+
+	return;
 };
 
