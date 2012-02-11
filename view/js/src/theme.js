@@ -16,10 +16,10 @@ var ThemeModel = function(model, theme, width, height)
 	var isize = size * 0.6;		// size of icon in middle of circle
 	this.selx = width/2;
 	this.sely = height - size*0.7;
-	this.icon = this.paper.image("themes/" + this.theme + "/icon.png",
-			this.selx-isize/2, this.sely-isize/2, isize, isize);
 	this.selector = this.paper.image("themes/" + this.theme + "/selector.png", 
 				this.selx-size/2, this.sely-size/2, size, size);
+	this.icon = this.paper.image("themes/" + this.theme + "/icon.png",
+			this.selx-isize/2, this.sely-isize/2, isize, isize);
 	this.selector.hide();
 	this.icon.hide();
 	
