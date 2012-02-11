@@ -20,8 +20,9 @@ var ThemeModel = function(model, theme, width, height)
 			this.selx-isize/2, this.sely-isize/2, isize, isize);
 	this.selector = this.paper.image("themes/" + this.theme + "/selector.png", 
 				this.selx-size/2, this.sely-size/2, size, size);
-	this.icon.hide();
 	this.selector.hide();
+	this.icon.hide();
+	
 
 	// option text
 	var fsize = size/4;	// text font size
@@ -119,8 +120,10 @@ ThemeModel.prototype.rotateSelector = function(rotation)
 
 ThemeModel.prototype.showOptions = function(text)
 {
-	this.selector.show();
 	this.icon.show();
+	this.selector.show();
+	
+	
 	for(var i = 0; i < text.length; i++) {
 		if(text[i] != undefined) {
 			this.options[i].attr({text: text[i]});
@@ -133,8 +136,9 @@ ThemeModel.prototype.showOptions = function(text)
 
 ThemeModel.prototype.hideOptions = function()
 {
-	this.selector.hide();
 	this.icon.hide();
+	this.selector.hide();
+	
 	for(var i = 0; i < 6; i++) {
 		this.options[i].hide();
 		this.optionShadow[i].hide();
