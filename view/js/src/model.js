@@ -24,6 +24,9 @@ var Model = function()
 	// initialize the video player
 	this.player = new Player(this, this.width, this.height);
 
+	// keep track of overall score in session
+	this.score = 0;	
+
 	// marks if the video is a replay
 	this.replay = false;
 

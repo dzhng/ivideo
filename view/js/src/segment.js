@@ -1,8 +1,9 @@
 //Create a video segment that has a URL file and creates the possible decision paths.
 
-var Segment = function(url)
+var Segment = function(url, score)
 {
-	this.url = url;
+	this.url = url;				// url of the video file
+	this.score = score || 0;	// score to add to the total score when this segment is done playing
 
 	// the default segment to go to, if set, the player will automatically
 	// go to that position without the option dialog
@@ -103,8 +104,6 @@ Segment.prototype.loadVideo = function(player)
 		vid.height = this.player.height;
 
 		// setup timer to change to option video when connection done playing
-		//vid.addEventListener("ended", this.videoEnded.bind(this), false);
-		//vid.addEventListener("loadedmetadata", this.videoLoaded, false);
 		document.body.insertBefore(vid, document.getElementById("controlOverlay"));
 
 		this.video = vid;
@@ -119,24 +118,6 @@ Segment.prototype.removeVideo = function()
 	if(this.video != null) {
 		document.body.removeChild(this.video);
 		this.video = null;
-	}
-};
-
-Segment.prototype.videoEnded = function(e) 
-{
-	this.player.videoEnded();
-};
-
-Segment.prototype.videoLoaded = function(e)
-{
-	if(this.paused) {
-		console.log("video loaded, paused");
-		this.currentTime = 0.1;
-	} else {
-		console.log("video loaded, playing");
-		this.currentTime = 0.1;
-		this.play();
-		setTimeout(this.play.bind(this), 33);	// because chrome sometimes still freezes
 	}
 };
 

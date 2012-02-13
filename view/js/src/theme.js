@@ -1,9 +1,9 @@
 
 var ThemeModel = function(model, theme, width, height)
 {
-	this.model = model;//provides interface for theme to give it's events to.
-	this.paper = model.paper;//paper is an object to draw things on
-	this.theme = theme;//detects events 
+	this.model = model;			//provides interface for theme to give it's events to.
+	this.paper = model.paper;	//paper is an object to draw things on
+	this.theme = theme;			//detects events 
 
 	// color choices
 	var textColor = "rgb(250,250,250)";
@@ -76,10 +76,11 @@ var ThemeModel = function(model, theme, width, height)
 	this.play.hide();
 
 	// event indicator
-	this.eventIndicator = this.paper.rect(0, height, width, 0).attr({fill:eventIndicatorFill, "fill-opacity":0, "stroke-width":0});
+	/*this.eventIndicator = this.paper.rect(0, height, width, 0).attr({fill:eventIndicatorFill, "fill-opacity":0, "stroke-width":0});
 	this.eventIndicator.data("h", r);
 	this.eventIndicator.data("y", height-r);
-	this.eventIndicator.hide();
+	this.eventIndicator.hide();*/
+	this.eventIndicator = null;			// TODO: Hide event indicator for now until we figure out a good way of doing this
 
 	// control play/pause button
 	var consize = fsize;
@@ -122,7 +123,6 @@ ThemeModel.prototype.showOptions = function(text)
 {
 	this.icon.show();
 	this.selector.show();
-	
 	
 	for(var i = 0; i < text.length; i++) {
 		if(text[i] != undefined) {
@@ -183,7 +183,8 @@ ThemeModel.prototype.hideHomeScreen = function()
 
 ThemeModel.prototype.showEventIndicator = function()
 {
-	if(this.eventIndicatorHidden = true) {
+	// set this.eventIndicator = null to avoid showing anything
+	if(this.eventIndicator != null && this.eventIndicatorHidden == true) {
 		var h = this.eventIndicator.data("h");
 		var y = this.eventIndicator.data("y");
 		this.eventIndicator.show();
@@ -194,7 +195,8 @@ ThemeModel.prototype.showEventIndicator = function()
 
 ThemeModel.prototype.hideEventIndicator = function()
 {
-	if(this.eventIndicatorHidden == false) {
+	// set this.eventIndicator = null to avoid showing anything
+	if(this.eventIndicator != null && this.eventIndicatorHidden == false) {
 		var h = this.eventIndicator.data("h");
 		var y = this.eventIndicator.data("y");
 		this.eventIndicator.animate({"height":0,"y":y+h}, 500, "<>", this.hide);

@@ -129,6 +129,10 @@ Player.prototype.timerTick = function(e)
 // called when the video is done playing
 Player.prototype.videoEnded = function()
 {
+	// add the score in the segment to the overall score
+	var score = this.segment.score;	
+	this.model.score += score;
+
 	//TODO: support looping waiting videos
 	
 	// check if the video is in stacked mode
