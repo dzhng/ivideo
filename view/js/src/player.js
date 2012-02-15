@@ -64,6 +64,8 @@ Player.prototype.playVideo = function()
 {
 	this.segment.setVisible();
 	this.segment.play();
+
+	console.log("Now playing %s, duration: %d seconds", this.segment.url, this.segment.video.duration);
 };
 
 Player.prototype.skipToEnd = function()
