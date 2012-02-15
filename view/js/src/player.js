@@ -31,6 +31,11 @@ Player.prototype.reset = function()
 	// currently playing segment, set it as first segment by default
 	this.segment = S1;
 
+	// add the score in the segment to the overall score
+	var score = this.segment.score;	
+	this.model.score = score;			// reset the score
+	console.log("Current score: %d", this.model.score);
+
 	// set current video and load the first video
 	this.segment.loadVideo(this);
 	this.segment.setVisible();
@@ -81,6 +86,11 @@ Player.prototype.setSegment = function(segment)
 	this.segment.removeVideo();
 	this.segment = segment;
 
+	// add the score in the segment to the overall score
+	var score = this.segment.score;	
+	this.model.score += score;
+	console.log("Current score: %d", this.model.score);
+
 	// reload the next segment's video
 	this.preloadVideo();
 	this.playVideo();
@@ -129,10 +139,6 @@ Player.prototype.timerTick = function(e)
 // called when the video is done playing
 Player.prototype.videoEnded = function()
 {
-	// add the score in the segment to the overall score
-	var score = this.segment.score;	
-	this.model.score += score;
-
 	//TODO: support looping waiting videos
 	
 	// check if the video is in stacked mode
