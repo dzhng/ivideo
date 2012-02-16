@@ -86,7 +86,7 @@ Model.prototype.mouseUp = function(e)
 			}
 			break;
 		default:
-			console.error("Illegle timer event mode");
+			console.error("Illegal timer event mode");
 			break;
 		}
 	}
