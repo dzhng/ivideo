@@ -1,4 +1,3 @@
-
 <?
 	$video = $_GET['v'];
 	if(isset($_GET['debug'])) {
@@ -21,7 +20,7 @@
 	</header>
 
 	<section id="page-content"> 
-		<div id="home-main-video">
+		<div id="main-video">
 			<iframe src="player.php?v=<?echo $video;?>" scrolling="no" frameborder="0" width="600px" height="420px">	
 				<p>Your Browser does not support iframes</p>
 			</iframe>
