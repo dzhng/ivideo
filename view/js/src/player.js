@@ -38,7 +38,6 @@ Player.prototype.reset = function()
 	var score = this.segment.score;	
 	this.model.updateScore(null);		// reset the score first
 	this.model.updateScore(score);
-	console.log("Current score: %d", this.model.score);
 
 	if(this.segment.videoStack.size() != 0) {
 		this.videoStacked = true;
@@ -102,7 +101,6 @@ Player.prototype.setSegment = function(segment)
 	// add the score in the segment to the overall score
 	var score = this.segment.score;	
 	this.model.updateScore(score);
-	console.log("Current score: %d", this.model.score);
 
 	// reload the next segment's video
 	this.preloadVideo();
