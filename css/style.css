@@ -97,8 +97,41 @@ header[role="nav"]{
 #main-video{
 	width:600px;
 	background-color:#F7F3EB; 
-	margin:0 auto; 
+	margin-left:100px;
+	margin-right:10px;
+	margin-top:0px;
+	margin-bottom:10px;
 	padding:10px;
+	border:1px solid #D9D7D4;
+	float:left;
+}
+#title-video{
+	margin-left:100px;
+	font-size:36px;
+}
+#score-box{
+	width:115px;
+	height:80px;
+	background-color:#F7F3EB;
+	margin-left:10px;
+	margin-right:auto;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding:10px;
+	border:1px solid #D9D7D4;
+	float:left;
+}
+#score-box h2{
+	font-size:18px;
+}
+#score-num{
+	font-size:32px;
+	text-align:center;
+	margin-top:10px;
+}
+#info-video{
+	clear:both;
+	margin-left:100px;
 }
 #logo h2{
 	color:white;
