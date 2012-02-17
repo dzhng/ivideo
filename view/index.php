@@ -29,7 +29,7 @@
 		</div>
 		<div id="score-box">
 			<h2>Score</h2>
-			<h3 id=score-num>10</h3>
+			<h3 id="score-num">10</h3>
 		</div>
 		<div id="info-video">
 			<p><span style="font-weight:bold !important;" >Goal:</span> Click a bunch of times when you hear the person doing something wrong.</p>
