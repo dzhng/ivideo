@@ -177,6 +177,20 @@ Model.prototype.selectOption = function(opt)
 	this.controlsVisible = true;		// make sure controls are visible for the next segment
 };
 
+// add diff to the current score
+Model.prototype.updateScore = function(diff)
+{
+	// update the score
+	if(diff == null) {		// a diff of 0 resets the score
+		this.score = 0;
+	} else {
+		this.score += diff;
+	}
+
+	// update main front page display
+	// TODO: Need to do this part
+};
+
 Model.prototype.timerTick = function()
 {
 	// increment the jiffy for every tick
