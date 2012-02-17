@@ -18,6 +18,8 @@ var Model = function()
 	canvas.height = this.height;
 	this.paper = Raphael(canvas, this.width,this.height);
 
+	this.scoreElement = parent.document.getElementById("scoreNum");
+
 	// keep track of overall score in session
 	this.score = 0;	
 
@@ -187,11 +189,11 @@ Model.prototype.updateScore = function(diff)
 		this.score += diff;
 	}
 
-	// update main front page display
-	// TODO: Need to do this part
-	document.getElementById('score-num').innerHTML = this.score;
+	// update main front page display if enclosed in iframe
+	if(this.scoreElement != null) {
+		this.scoreElement.innerHTML = this.score;
+	}
 	console.log("Current score: %d", this.score);
-
 };
 
 Model.prototype.timerTick = function()
