@@ -18,14 +18,14 @@ var Model = function()
 	canvas.height = this.height;
 	this.paper = Raphael(canvas, this.width,this.height);
 
+	// keep track of overall score in session
+	this.score = 0;	
+
 	// initialize the theme
 	this.theme = new ThemeModel(this, "professional1", this.width, this.height);
 
 	// initialize the video player
 	this.player = new Player(this, this.width, this.height);
-
-	// keep track of overall score in session
-	this.score = 0;	
 
 	// marks if the video is a replay
 	this.replay = false;

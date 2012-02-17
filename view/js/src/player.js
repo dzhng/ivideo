@@ -7,9 +7,7 @@ var Player = function(model, width, height)
 
 	// model instance used for displaying controls after video is done playing
 	this.model = model;
-
-	// reset the player on startup
-	this.reset();
+	this.segment = null;	// currently playing segment
 
 	// timer events
 	this.timerEventCanTrigger = false;
@@ -23,11 +21,16 @@ var Player = function(model, width, height)
 	
 	// stores if the current segment has other segment(s) stacked
 	this.videoStacked = false;
+
+	// reset the player on startup
+	this.reset();
 };
 
 // switch to the first default video
 Player.prototype.reset = function()
 {
+	console.log("Resetting player");
+
 	// currently playing segment, set it as first segment by default
 	this.segment = S1;
 
@@ -35,6 +38,13 @@ Player.prototype.reset = function()
 	var score = this.segment.score;	
 	this.model.score = score;			// reset the score
 	console.log("Current score: %d", this.model.score);
+
+	if(this.segment.videoStack.size != 0) {
+		this.videoStacked = true;
+		console.log("video is stacked");
+	} else {
+		this.videoStacked = false;
+	}		
 
 	// set current video and load the first video
 	this.segment.loadVideo(this);
@@ -105,6 +115,12 @@ Player.prototype.chooseOption = function(option)
 
 	// get the new segment and stop other segments from loading
 	var newSeg = this.segment.chooseConnection(option).segment;
+	if(newSeg.videoStack.size != 0) {
+		this.videoStacked = true;
+		console.log("video is stacked");
+	} else {
+		this.videoStacked = false;
+	}
 
 	// set the new segment
 	this.setSegment(newSeg);
@@ -115,7 +131,7 @@ Player.prototype.chooseOption = function(option)
 Player.prototype.timerTick = function(e) 
 {
 	var seg = this.segment;
-	if(seg.video != null) {
+	if(seg != null && seg.video != null) {
 		// first check if the video has ended
 		if(seg.video.currentTime >= seg.video.duration) {
 			this.videoEnded();
@@ -146,6 +162,7 @@ Player.prototype.videoEnded = function()
 	// check if the video is in stacked mode
 	if(this.videoStacked) {
 		this.videoStacked = false;	// reset flag
+		console.log("stacked videos detected, unstacking...");
 
 		// build the connections from the stack
 		var seg = this.segment;
