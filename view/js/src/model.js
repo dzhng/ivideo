@@ -189,8 +189,7 @@ Model.prototype.updateScore = function(diff)
 
 	// update main front page display
 	// TODO: Need to do this part
-	var scoreString = diff.toString();
-	document.getElementById('score-num').innerHTML = scoreString;
+	document.getElementById('score-num').innerHTML = this.score;
 	console.log("Current score: %d", this.score);
 
 };
