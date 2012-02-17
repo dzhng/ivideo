@@ -39,9 +39,9 @@ Player.prototype.reset = function()
 	this.model.score = score;			// reset the score
 	console.log("Current score: %d", this.model.score);
 
-	if(this.segment.videoStack.size != 0) {
+	if(this.segment.videoStack.size() != 0) {
 		this.videoStacked = true;
-		console.log("video is stacked");
+		console.log("video is stacked, size: %d", this.segment.videoStack.size());
 	} else {
 		this.videoStacked = false;
 	}		
@@ -115,9 +115,9 @@ Player.prototype.chooseOption = function(option)
 
 	// get the new segment and stop other segments from loading
 	var newSeg = this.segment.chooseConnection(option).segment;
-	if(newSeg.videoStack.size != 0) {
+	if(newSeg.videoStack.size() != 0) {
 		this.videoStacked = true;
-		console.log("video is stacked");
+		console.log("video is stacked, size: %d", this.segment.videoStack.size());
 	} else {
 		this.videoStacked = false;
 	}
