@@ -68,30 +68,7 @@ Model.prototype.mouseMove = function(e)
 
 Model.prototype.mouseUp = function(e)
 {
-	if(this.player.timerEventCanTrigger) {
-		switch(this.player.timerEventMode) {
-		case 0:
-			this.player.setSegment(this.player.timerEventSegment);
-			break;
-		case 1:
-			// stacked and append
-			this.player.segment.videoStack.insert(this.player.timerEventSegment);
-			this.player.videoStacked = true;
-			break;
-		case 2:
-			// stacked and remove
-			this.player.segment.videoStack.remove(this.player.timerEventSegment);
-			if(this.player.segment.videoStack.size == 0) {
-				this.player.videoStacked = false;
-			} else {
-				this.player.videoStacked = true;
-			}
-			break;
-		default:
-			console.error("Illegal timer event mode");
-			break;
-		}
-	}
+	this.player.mouseInterrupt();
 };
 
 Model.prototype.playClicked = function()

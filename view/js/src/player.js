@@ -143,20 +143,38 @@ Player.prototype.timerTick = function(e)
 Player.prototype.mouseInterrupt = function(e)
 {
 	var seg = this.segment;
-
+	if(seg != null && seg.video != null) {
 		// go through all the segment's timer events and check if any event is viable
 		for(var i = 0; i < seg.timedEvents.length; i++) {
 			var evn = seg.timedEvents[i];
 			if((seg.video.currentTime > evn.startTime) && (seg.video.currentTime < evn.endTime)) {
-				this.timerEventCanTrigger = true;
-				this.timerEventSegment = evn.segment;
-				this.timerEventMode = evn.mode;
-				return;
+				var seg = evn.segment;
+				var mode = evn.mode;
+				switch(mode) {
+				case 0:
+					this.setSegment(seg);
+					break;
+				case 1:
+					// stacked and append
+					this.segment.videoStack.insert(seg);
+					this.videoStacked = true;
+					break;
+				case 2:
+					// stacked and remove
+					this.segment.videoStack.remove(seg);
+					if(this.segment.videoStack.size == 0) {
+						this.videoStacked = false;
+					} else {
+						this.videoStacked = true;
+					}
+					break;
+				default:
+					console.error("Illegal timer event mode");
+					break;
+				}
 			}
 		}	
-		// if none found, reset timer event variables
-		this.timerEventCanTrigger = false;
-		this.timerEventSegment = null;
+	}
 };
 
 // called when the video is done playing
