@@ -136,6 +136,13 @@ Player.prototype.timerTick = function(e)
 			this.videoEnded();
 			return;
 		}
+	}
+};
+
+// called when the user clicks on the video player
+Player.prototype.mouseInterrupt = function(e)
+{
+	var seg = this.segment;
 
 		// go through all the segment's timer events and check if any event is viable
 		for(var i = 0; i < seg.timedEvents.length; i++) {
@@ -150,7 +157,6 @@ Player.prototype.timerTick = function(e)
 		// if none found, reset timer event variables
 		this.timerEventCanTrigger = false;
 		this.timerEventSegment = null;
-	}
 };
 
 // called when the video is done playing
