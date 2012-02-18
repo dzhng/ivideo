@@ -32,7 +32,7 @@
 			<h3 id="scoreNum">0</h3>
 		</div>
 		<div id="info-video">
-			<p><span style="font-weight:bold !important;" >Goal:</span> Click on the screen when you hear the narrator doing something wrong.</p>
+			<p><span style="font-weight:bold !important;" >Goal:</span> Listen to the narrator and choose the correct option.</p>
 		</div>
 	</section>
 </body>
