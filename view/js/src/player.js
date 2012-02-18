@@ -150,6 +150,7 @@ Player.prototype.mouseInterrupt = function(e)
 			if((seg.video.currentTime > evn.startTime) && (seg.video.currentTime < evn.endTime)) {
 				var seg = evn.segment;
 				var mode = evn.mode;
+				console.log("event executed, mode %d", mode);
 				switch(mode) {
 				case 0:
 					this.setSegment(seg);
