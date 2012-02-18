@@ -14,13 +14,13 @@
 </head>
 <body>
 	<header role="nav">
-		<div id="logo">Logo Goes Here</div>
-		<div id="app-navigation">Navigation Stuff Goes here</div>
+		<div id="logo"><!--Logo Goes Here--></div>
+		<div id="app-navigation"><!--Navigation Stuff Goes here--></div>
 	</header>
 
 	<section id="page-content"> 
 		<div id="title-video">
-			<h1>Title bar: subtitle...</h1>
+			<h1>DuPont Customer Service Training</h1>
 		</div>
 		<div id="main-video">
 			<iframe src="player.php?v=<?echo $video;?>" scrolling="no" frameborder="0" width="600px" height="420px">	
