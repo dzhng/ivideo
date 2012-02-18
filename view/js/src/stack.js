@@ -8,6 +8,12 @@ var Stack = function()
 // this is called when a new video is to be inserted into the stack
 Stack.prototype.insert = function(seg)
 {
+	// first check if this segment is already in the stack
+	for(var i = 0; i < this.stack.length; i++) {
+		if(this.stack[i] == seg) {
+			return;	// return if duplicate found
+		}
+	}
 	this.stack.push(seg);
 };
 
