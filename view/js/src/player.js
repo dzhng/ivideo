@@ -159,6 +159,7 @@ Player.prototype.mouseInterrupt = function(e)
 					// stacked and append
 					this.segment.videoStack.insert(seg);
 					this.videoStacked = true;
+					this.model.theme.clickEffect(true);		// show effect for clicked
 					break;
 				case 2:
 					// stacked and remove
@@ -168,6 +169,7 @@ Player.prototype.mouseInterrupt = function(e)
 					} else {
 						this.videoStacked = true;
 					}
+					this.model.theme.clickEffect(true);		// show effect for clicked
 					break;
 				default:
 					console.error("Illegal timer event mode");
