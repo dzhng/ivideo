@@ -10,6 +10,8 @@ var ThemeModel = function(model, theme, width, height)
 	var textHighlighted = "rgb(255,166,10)";
 	var eventIndicatorFill = "90-#fa6900:0-#fa6900:100";
 	var shadowFill = "rgba(0,0,0,0.7)";
+	var posClickFill = "rgb(0,0,255)";
+	var negClickFill = "rgb(255,0,0)";
 
 	// option selector and icon
 	var size = width/10;		// size of option selection circle
@@ -76,11 +78,16 @@ var ThemeModel = function(model, theme, width, height)
 	this.play.hide();
 
 	// event indicator
+	// TODO: Hide event indicator for now until we figure out a good way of doing this
 	/*this.eventIndicator = this.paper.rect(0, height, width, 0).attr({fill:eventIndicatorFill, "fill-opacity":0, "stroke-width":0});
 	this.eventIndicator.data("h", r);
 	this.eventIndicator.data("y", height-r);
 	this.eventIndicator.hide();*/
-	this.eventIndicator = null;			// TODO: Hide event indicator for now until we figure out a good way of doing this
+	this.eventIndicator = null;			
+
+	// click effect
+	this.posClickEffect = this.paper.rect(0, 0, width, height).attr({fill:posClickFill, opacity:0.2}).hide();
+	this.negClickEffect = this.paper.rect(0, 0, width, height).attr({fill:negClickFill, opacity:0.2}).hide();
 
 	// control play/pause button
 	var consize = fsize;
@@ -201,6 +208,20 @@ ThemeModel.prototype.hideEventIndicator = function()
 		var y = this.eventIndicator.data("y");
 		this.eventIndicator.animate({"height":0,"y":y+h}, 500, "<>", this.hide);
 		this.eventIndicatorHidden = true;
+	}
+};
+
+ThemeModel.prototype.clickEffect = function(positive)
+{
+	// use different effects for positive or negative effect
+	switch(positive)
+	{
+		case true:
+			this.posClickEffect.attr({opacity:0.2}).show();
+			this.posClickEffect.animate({opacity:0}, 500, "<>", this.hide);
+			break;
+		case false:
+			break;
 	}
 };
 
