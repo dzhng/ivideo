@@ -185,8 +185,8 @@ Player.prototype.mouseInterrupt = function(e)
 				return;
 			}
 		}	
-		// if no segment, show the negative click effect
-		this.model.theme.clickEffect(false);		// show effect for clicked
+		// if no segment, show the neutral click effect
+		this.model.theme.clickEffect(null);		// show effect for clicked
 	}
 };
 

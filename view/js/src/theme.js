@@ -12,10 +12,12 @@ var ThemeModel = function(model, theme, width, height)
 	var shadowFill = "rgba(0,0,0,0.7)";
 	var posClickFill = "rgb(0,255,0)";
 	var negClickFill = "rgb(255,0,0)";
+	var neutralClickFill = "rgb(255,255,255)";
 
 	// click effect - goes all way on bottom to make sure it doesn't block inputs
 	this.posClickEffect = this.paper.rect(0, 0, width, height).attr({fill:posClickFill, opacity:0.2}).hide();
 	this.negClickEffect = this.paper.rect(0, 0, width, height).attr({fill:negClickFill, opacity:0.2}).hide();
+	this.neutralClickEffect = this.paper.rect(0, 0, width, height).attr({fill:neutralClickFill, opacity:0.2}).hide();
 
 	// option selector and icon
 	var size = width/10;		// size of option selection circle
@@ -223,6 +225,10 @@ ThemeModel.prototype.clickEffect = function(positive)
 		case false:
 			this.negClickEffect.attr({opacity:0.2}).show();
 			this.negClickEffect.animate({opacity:0}, 200, "<>", this.hide);
+			break;
+		case null:
+			this.neutralClickEffect.attr({opacity:0.2}).show();
+			this.neutralClickEffect.animate({opacity:0}, 200, "<>", this.hide);
 			break;
 	}
 };
