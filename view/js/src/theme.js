@@ -13,6 +13,10 @@ var ThemeModel = function(model, theme, width, height)
 	var posClickFill = "rgb(0,255,0)";
 	var negClickFill = "rgb(255,0,0)";
 
+	// click effect - goes all way on bottom to make sure it doesn't block inputs
+	this.posClickEffect = this.paper.rect(0, 0, width, height).attr({fill:posClickFill, opacity:0.2}).hide();
+	this.negClickEffect = this.paper.rect(0, 0, width, height).attr({fill:negClickFill, opacity:0.2}).hide();
+
 	// option selector and icon
 	var size = width/10;		// size of option selection circle
 	var isize = size * 0.6;		// size of icon in middle of circle
@@ -84,10 +88,6 @@ var ThemeModel = function(model, theme, width, height)
 	this.eventIndicator.data("y", height-r);
 	this.eventIndicator.hide();*/
 	this.eventIndicator = null;			
-
-	// click effect
-	this.posClickEffect = this.paper.rect(0, 0, width, height).attr({fill:posClickFill, opacity:0.2}).hide();
-	this.negClickEffect = this.paper.rect(0, 0, width, height).attr({fill:negClickFill, opacity:0.2}).hide();
 
 	// control play/pause button
 	var consize = fsize;
