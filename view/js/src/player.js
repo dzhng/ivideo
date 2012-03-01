@@ -157,19 +157,25 @@ Player.prototype.mouseInterrupt = function(e)
 					break;
 				case 1:
 					// stacked and append
-					this.segment.videoStack.insert(seg);
-					this.videoStacked = true;
-					this.model.theme.clickEffect(true);		// show effect for clicked
+					if(this.segment.videoStack.insert(seg)) {
+						this.videoStacked = true;
+						this.model.theme.clickEffect(true);		// show effect for clicked
+					} else {
+						this.model.theme.clickEffect(false);		// show effect for clicked
+					}
 					break;
 				case 2:
 					// stacked and remove
-					this.segment.videoStack.remove(seg);
-					if(this.segment.videoStack.size == 0) {
-						this.videoStacked = false;
+					if(this.segment.videoStack.remove(seg)) {
+						if(this.segment.videoStack.size == 0) {
+							this.videoStacked = false;
+						} else {
+							this.videoStacked = true;
+						}
+						this.model.theme.clickEffect(true);		// show effect for clicked
 					} else {
-						this.videoStacked = true;
+						this.model.theme.clickEffect(false);		// show effect for clicked
 					}
-					this.model.theme.clickEffect(true);		// show effect for clicked
 					break;
 				default:
 					console.error("Illegal timer event mode");

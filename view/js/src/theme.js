@@ -218,9 +218,11 @@ ThemeModel.prototype.clickEffect = function(positive)
 	{
 		case true:
 			this.posClickEffect.attr({opacity:0.2}).show();
-			this.posClickEffect.animate({opacity:0}, 500, "<>", this.hide);
+			this.posClickEffect.animate({opacity:0}, 200, "<>", this.hide);
 			break;
 		case false:
+			this.negClickEffect.attr({opacity:0.2}).show();
+			this.negClickEffect.animate({opacity:0}, 200, "<>", this.hide);
 			break;
 	}
 };

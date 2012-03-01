@@ -11,10 +11,11 @@ Stack.prototype.insert = function(seg)
 	// first check if this segment is already in the stack
 	for(var i = 0; i < this.stack.length; i++) {
 		if(this.stack[i] == seg) {
-			return;	// return if duplicate found
+			return false;	// return if duplicate found
 		}
 	}
 	this.stack.push(seg);
+	return true;
 };
 
 // remove the input segment from the stack
@@ -24,9 +25,10 @@ Stack.prototype.remove = function(seg)
 		// if segment found, remove and return
 		if(this.stack[i] == seg) {
 			this.stack.splice(i, 1);
-			return;
+			return true;
 		}
 	}
+	return false;	// if no video removed, it's an illegal remove
 };
 
 Stack.prototype.pull = function()
