@@ -69,6 +69,7 @@ Model.prototype.mouseMove = function(e)
 Model.prototype.mouseUp = function(e)
 {
 	this.player.mouseInterrupt();
+	return true;
 };
 
 Model.prototype.playClicked = function()
