@@ -179,10 +179,14 @@ Player.prototype.mouseInterrupt = function(e)
 					break;
 				default:
 					console.error("Illegal timer event mode");
-					break;
+					return;
 				}
+				// if an event is found, return
+				return;
 			}
 		}	
+		// if no segment, show the negative click effect
+		this.model.theme.clickEffect(false);		// show effect for clicked
 	}
 };
 
