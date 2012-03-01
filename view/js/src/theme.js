@@ -10,7 +10,7 @@ var ThemeModel = function(model, theme, width, height)
 	var textHighlighted = "rgb(255,166,10)";
 	var eventIndicatorFill = "90-#fa6900:0-#fa6900:100";
 	var shadowFill = "rgba(0,0,0,0.7)";
-	var posClickFill = "rgb(0,0,255)";
+	var posClickFill = "rgb(0,255,0)";
 	var negClickFill = "rgb(255,0,0)";
 
 	// option selector and icon
