@@ -24,7 +24,7 @@ var Model = function()
 	this.score = 0;	
 
 	// initialize the theme
-	this.theme = new ThemeModel(this, "professional1", this.width, this.height);
+	this.theme = new ThemeModel(this, VideoTheme, this.width, this.height);
 
 	// initialize the video player
 	this.player = new Player(this, this.width, this.height);
