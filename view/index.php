@@ -20,7 +20,8 @@
 
 	<section id="page-content"> 
 		<div id="title-video">
-			<h1>DuPont Customer Service Training</h1>
+			<!--<h1>DuPont Customer Service Training</h1>-->
+			<h1>Interactive Video API Demo</h1>-->
 		</div>
 		<div id="main-video">
 			<iframe src="player.php?v=<?echo $video;?>" scrolling="no" frameborder="0" width="600px" height="420px">	
